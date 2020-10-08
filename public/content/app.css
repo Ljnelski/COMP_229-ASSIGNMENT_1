@@ -1,0 +1,50 @@
+/*
+app.CSS
+Liam Nelski
+301064116
+10/4/2020
+*/
+
+/*Formating*/
+.spacer-y80
+{    
+    margin-bottom: 80px;
+    margin-top: 20px;
+}
+.spacer-bottom
+{
+    margin-bottom: 40px;
+}
+.mx-6
+{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/*Text/font*/
+.fontNav
+{
+    font-size: 20px;
+    margin-top: 1;
+}
+.fontContent
+{
+    text-indent: 40px;
+    font-size: 16px;
+}
+
+/*images*/
+.logo
+{
+    width: 84px;
+    height: 36px;
+}
+.mugShot
+{
+    width: 70%;
+    
+}
+.projectImage
+{
+    width: 100%;
+}
