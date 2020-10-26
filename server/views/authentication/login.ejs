@@ -1,0 +1,50 @@
+<%- include ../partials/header.ejs%>
+
+<%- include ../partials/main_nav.ejs%>
+
+<!--Main Content-->
+<main class="container">
+    <div class="jumbotron py-4 my-0">
+        <h1 class="display-4"><%= title %></h1>    
+        
+        <% if(messages.length > 0) { %>
+            <div class="alert alert-danger">
+                <%= messages %>
+            </div>
+        <% } %>
+
+        <form method="POST" autocomplete="off">
+                
+            <fieldSet class="form-group">
+                <label for="username">Username: </label>
+                <input type="text" class="form-control"
+                name="username"
+                placeholder="Enter Username"
+                id="username"
+                required autofocus>
+            </fieldSet>
+
+            <fieldSet class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control"
+                name="password"
+                placeholder="Enter Password"
+                id="password"
+                required>
+                <a href="/register">Register Here</a>
+            </fieldSet>
+
+            <field class="form-group text-right">
+                <input type="submit" class="btn btn-success" value="Login">
+                <a href="/">
+                    <input type="button" class="btn btn-warning" value="Cancel">
+                </a>
+            </field>
+
+        </form>
+    </div>
+</main> 
+
+<%- include ../partials/bottom_nav.ejs%>
+
+<%- include ../partials/footer.ejs%>

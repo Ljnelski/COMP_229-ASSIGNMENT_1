@@ -51,7 +51,20 @@
                 <li class="nav-item mx-5">
             <% } %>
                 <a class="nav-link fontNav" href="/contact">Contact me</a>
-            </li>            
+            </li>   
+            
+            <% if (typeof username == 'string' && username) { %>
+                <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%= username %></li>
+                <li class="nav-item">
+                  <a href="/logout" class="nav-link">
+                  <i class="fas fa-lg fa-sign-out-alt"></i>Logout</a>
+                </li>
+              <% } else { %>
+              <li class="nav-item"><a href="/login" class="nav-link">
+                <i class="fas fa-lg fa-sign-in-alt"></i>Login</a>
+              </li>
+              <% } %>
+            
           </ul>
     </div>   
   </nav>

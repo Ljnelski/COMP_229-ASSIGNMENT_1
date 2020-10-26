@@ -9,6 +9,10 @@ let logger = require('morgan');
 let session = require('express-session');
 let passport = require('passport');
 
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+
 //database setup
 let mongoose = require ('mongoose');
 let DB = require('./DB');
@@ -40,6 +44,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')))
 
+//setup express session
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// intialize flash
+app.use(flash());
+
+//intialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//initalize passport
 let userModel = require('../models/user');
 let User = userModel.User;
 
