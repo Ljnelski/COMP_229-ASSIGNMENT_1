@@ -41,7 +41,7 @@ module.exports.displayLoginPage = (req, res, next) =>{
     }
     else
     {
-        return res.redirect('/');
+        return res.redirect('/buisness-contacts/list');
     }
 }
 
@@ -64,7 +64,7 @@ module.exports.processLoginPage = (req, res, next) =>{
             {
                 return next(err);    
             }            
-            return res.redirect('/');
+            return res.redirect('/buisness-contacts');
         });
     })(req, res, next);
 }
@@ -82,7 +82,7 @@ module.exports.displayRegisterPage = (req, res , next) =>{
     }
     else
     {
-        return res.redirect('/');
+        return res.redirect('/buisness-contacts/list');
     }
 }
 

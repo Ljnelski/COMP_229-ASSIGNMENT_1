@@ -1,0 +1,58 @@
+<%- include ../partials/header.ejs%>
+
+<%- include ../partials/main_nav.ejs%>
+
+<!--Main Content-->
+<main class="container">
+  <!--<div class = "spacer-y20"></div>-->
+    <div class="jumbotron py-4 my-0">
+        <h1 class="display-4"><%= title %></h1>      
+    </div>
+    <div class="container bg-light py-5">
+        <!-- input form for adding contacts -->
+        <div class="row">
+            <div class="col-md-6 mx-5">
+
+                <form class="form" method="POST" autocomplete="off">
+            
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" 
+                        id = "name"
+                        placeholder="Enter Contact's name"
+                        name="name" 
+                        required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" 
+                        id = "email"
+                        placeholder="Enter contacts email address"
+                        name="email" 
+                        required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="number">Phone Number</label>
+                        <input type="number" class="form-control" 
+                        id = "number" 
+                        placeholder="Enter the contacts phone number"
+                        name="number" 
+                        required>
+                    </div> 
+            
+                    <button class="btn btn-primary" type = "Add Contact">
+                         <i class="fas fa-edit"></i>Submit
+                    </button>
+
+                    <a href="/buisness-contacts" class="btn btn-warning"><i class="fas fa-undo"></i>Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</main> 
+
+<%- include ../partials/bottom_nav.ejs%>
+
+<%- include ../partials/footer.ejs%>

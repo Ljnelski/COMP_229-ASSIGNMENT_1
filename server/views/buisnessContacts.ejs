@@ -5,18 +5,50 @@
 <!--Main Content-->
 <main class="container">
   <!--<div class = "spacer-y20"></div>-->
-  <div class="jumbotron py-4 my-0">
+    <div class="jumbotron py-4 my-0">
         <h1 class="display-4"><%= title %></h1>      
-  </div>
-  <div class="container bg-light py-5">
+    </div>
+    <div class="container bg-light py-5">
     <% if (title === "Business Contacts") { %>
-        <%- include contactList/list.ejs %>
-    <% } else if (title === "Add") { %>
-        <%- include contactList/add.ejs %>
-    <% } else if (title === "Update") { %>
-        <%- include contactList/update.ejs %>
-    <% } %>
-  </div>
+        <% if (typeof username == 'string' && username) { %>
+            <a href="/buisness-contacts/add" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i>Add a Contact</a>
+            <% } %>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center col-3">Contact Name</th>
+                    <th class="text-center col-3">Contact Number</th>
+                    <th class="text-center col-2">Email Address</th>
+                    <% if (typeof displayName == 'string' && displayName) { %>
+                        <th class="text-center col-2"></th>
+                        <th class="text-center col-2"></th>
+                    <% } %>
+                </tr>
+                <!-- Repeatable Template Row -->
+        
+                <%for (let count = 0; count < ContactList.length; count++){ %>
+                    <tr>
+                        <td class="text-center col-4"><%= ContactList[count].name %></td>
+                        <td class="text-center col-3"><%= ContactList[count].number %></td>
+                        <td class="text-center col-3"><%= ContactList[count].email %></td>                        
+                         
+                        <% if (typeof username == 'string' && username) { %>
+                            <td class="text-center col-1">
+                                <a href="/buisness-contacts/update/<%= ContactList[count].id %>" class="btn btn-primary">
+                                <i class="fas fa-pencil-alt"></i>Update</a>
+                            </td>
+                            <td class="text-center col-1">
+                                <a href="buisness-contacts/delete/<%= ContactList[count].id %>" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>Delete</a>
+                            </td>
+                        <% } %>                        
+                    </tr>                    
+                <% } %> 
+            </table>
+        <% } %>
+    </div>
 </main> 
 
 <%- include partials/bottom_nav.ejs%>
