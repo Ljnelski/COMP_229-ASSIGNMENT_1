@@ -9,23 +9,23 @@ let User = userModel.User;
 
 //router logic
 module.exports.displayHomePage = (req, res, next) =>{
-    res.render('index', { title: 'Home'});
+    res.render('index', { title: 'Home', username: req.user ? req.user.username: ''});
 }
 
 module.exports.displayAboutPage = (req, res, next) =>{
-    res.render('index', { title: 'About me' });
+    res.render('index', { title: 'About me', username: req.user ? req.user.username: ''});
 }
 
 module.exports.displayProjectsPage = (req, res, next) =>{
-    res.render('index', { title: 'Projects' });
+    res.render('index', { title: 'Projects', username: req.user ? req.user.username: '' });
 }
 
 module.exports.displayServicesPage = (req, res, next) =>{
-    res.render('index', { title: 'Services' });
+    res.render('index', { title: 'Services', username: req.user ? req.user.username: '' });
 }
 
 module.exports.displayContactPage = (req, res, next) =>{
-    res.render('contact', { title: 'Contact me' });
+    res.render('contact', { title: 'Contact me', username: req.user ? req.user.username: '' });
 }
 
 module.exports.displayLoginPage = (req, res, next) =>{
@@ -36,7 +36,7 @@ module.exports.displayLoginPage = (req, res, next) =>{
         {
             title: 'Login',
             messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.displayName: ''
+            username: req.user ? req.user.username: ''
         });        
     }
     else
@@ -126,4 +126,9 @@ module.exports.processRegisterPage = (req, res, next) => {
             })
         }
     })
+}
+
+module.exports.performLogOut = (req, res, next) =>{
+    req.logout();
+    res.redirect('/');
 }
