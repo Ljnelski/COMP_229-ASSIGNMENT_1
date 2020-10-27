@@ -15,15 +15,15 @@
             <i class="fas fa-plus-circle"></i>Add a Contact</a>
             <% } %>
             <br>
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover" onclick="sortTable()">
                 <!-- Header Row-->
                 <tr>
                     <th class="text-center col-3">Contact Name</th>
                     <th class="text-center col-3">Contact Number</th>
                     <th class="text-center col-2">Email Address</th>
-                    <% if (typeof displayName == 'string' && displayName) { %>
-                        <th class="text-center col-2"></th>
-                        <th class="text-center col-2"></th>
+                    <% if (typeof username == 'string' && username) { %>
+                        <th class="text-center col-2">Update Contact</th>
+                        <th class="text-center col-2">Delete Contact</th>
                     <% } %>
                 </tr>
                 <!-- Repeatable Template Row -->
